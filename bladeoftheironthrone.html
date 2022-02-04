@@ -7,7 +7,6 @@
 		<div class="info-row">
 			<div class="title">
 				<h1 data-i18n="bladeoftheironthrone">Blade of the Iron Throne</h1>
-				<label><input name="attr_nature" placeholder="Hawk" title="@{nature}" type="text" value="" /></label>
 			</div>
 			<div class='maindiv'>
 				<h2 data-i18n="lookbackground">Character Information</h2>
@@ -40,7 +39,7 @@
 		<br/>
         
         
-        <h2">Skills</h2>
+        <h2>Skills</h2>
         
         <fieldset class="repeating_skills">
 			<button type="roll" "name="roll_skill" value="/em uses @{skillname}, and rolls [[@{dtype}]]"></button>
@@ -54,6 +53,24 @@
                 <option value="sy">Sagacity</option>
 				<option value="cg">Cunning</option>
             </select>
+        </fieldset>
+		
+		<h2>Assets</h2>
+        
+        <fieldset class="repeating_skills">
+			<input type="text" name="attr_assetname" value="">
+            <select name="attr_asset_type" class="dtype">
+                <option value="good">Good</option>
+                <option value="bad">Bad</option>
+            </select>
+			<input type="text" name='attr_asset_description' value=''>
+        </fieldset>
+		
+		<h2>Melee Proficiency</h2>
+        
+        <fieldset class="repeating_skills">
+			<input type="text" name="attr_proficiencyname" value="">
+			<input type="text" name='attr_proficiencyvalue' value=''>
         </fieldset>
 
 	</div>
