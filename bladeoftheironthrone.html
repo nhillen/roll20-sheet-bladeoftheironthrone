@@ -153,13 +153,72 @@
 <!--*********************************************************************************************************-->
 <script type="text/worker">
 
+on("change:cunning change:daring sheet:opened", function() {  
+  getAttrs(["cunning","daring"], function(values) {
+    let cn = parseInt(values.cunning)||0;
+    let dr = parseInt(values.darring)||0;
+    let reflex = Math.round((cn + dr) / 2);
+    setAttrs({                            
+      "reflex": reflex
+    });
+  });
+});
 
-on("clicked:whisper", (eventinfo) => {
-	getAttrs(["gm_toggle"], (v) => {
-		setAttrs({
-			gm_toggle : (v.gm_toggle.includes("gm")) ?  " " : "/w gm"
-		}); 
-	});
+on("change:cunning change:sagacity sheet:opened", function() {  
+  getAttrs(["cunning","sagacity"], function(values) {
+    let cn = parseInt(values.cunning)||0;
+    let sg = parseInt(values.sagacity)||0;
+    let aim = Math.round((cn + sg) / 2);
+    setAttrs({                            
+      "aim": aim
+    });
+  });
+});
+
+on("change:brawn change:daring sheet:opened", function() {  
+  getAttrs(["brawn","daring"], function(values) {
+    let bn = parseInt(values.brawn)||0;
+    let dr = parseInt(values.darring)||0;
+    let knockdown = Math.round((bn + dr) / 2);
+    setAttrs({                            
+      "knockdown": knockdown
+    });
+  });
+});
+
+on("change:brawn change:tenacity sheet:opened", function() {
+  getAttrs(["brawn","tenacity"], function(values) {
+    let bn = parseInt(values.brawn)||0;
+    let tn = parseInt(values.tenacity)||0;
+    let knockout = Math.round((cn + tn) / 2);
+    setAttrs({                            
+      "knockout": knockout
+    });
+  });
+});
+
+on("change:cunning change:daring change:brawn sheet:opened", function() {  
+  getAttrs(["cunning","daring", "brawn"], function(values) {
+    let cn = parseInt(values.cunning)||0;
+    let dr = parseInt(values.darring)||0;
+	let bn = parseInt(values.brawn)||0;
+    let move = Math.round((cn + dr + bn) / 3);
+    setAttrs({                            
+      "move": move
+    });
+  });
+});
+
+on("change:tenacity change:sagacity change:brawn sheet:opened", function() {  
+  getAttrs(["sagacity","brawn", "tenacity"], function(values) {
+    let tn = parseInt(values.tenacity)||0;
+    let sg = parseInt(values.sagacity)||0;
+	let bn = parseInt(values.brawn)||0;
+    let power = Math.round((tn + dr + sg) / 3);
+    setAttrs({                            
+      "power": power
+    });
+  });
 });
 
 </script>
